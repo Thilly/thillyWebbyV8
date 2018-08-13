@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+
+    <h2>About</h2>
+    <p>So far I'm just getting my bearings on angular, seems like its popular so no reason not to use it. I have my server back, but because of <i>'reasons'</i>, I lost version 5. So thats 6 months of work dissolved into the ether of a reformat. Its still on github for posterity. Version 6 never went anywhere, and 7 was some weird attempt at using google app engine. I got lost in the setup and barely squeezed out a hello world on it. So now I'm playing with tutes and seeing where this goes. Hopefully angular is floppy enough to let me play how what I want.</p>
+    <p>My stack so far is express serving ejs with some angular on the front. Pretty tiny stack and no real content to speak of, but it'll grow quick.</p>
+    <p>'til next time :D</p>
+
+    <h2>Todo</h2>
+    <div ng-controller="TodoListController as todoList">
+      <span>{{todoList.remaining() + <%= remaining %>}} of {{todoList.todos.length + <%= toDos.length %>}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <!-- server supplied todos through EJS-->
+        <%toDos.forEach(function(todo) { %>
+          <li>
+            <label class="checkbox">
+              <input type="checkbox"
+              <% if(todo.done) { %>
+               checked
+              <% } %>
+              >
+              <span class="done-<%= todo.done %>"><%= todo.text %></span>
+            </label>
+          </li>
+        <% }); %>
+        <!-- user supplied todos through angular-->
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+  </body>
+</html>
