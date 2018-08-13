@@ -1,0 +1,15 @@
+{
+  "name": "thillyserverv8",
+  "version": "1.0.0",
+  "description": "Next iteration of website by thilly, this time trying out a industry standard MEAN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.3",
+    "express": "^4.16.3"
+  }
+}
