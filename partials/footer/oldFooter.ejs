@@ -1,0 +1,31 @@
+<div ng-controller="TodoListController as todoList">
+  <span>{{todoList.remaining() + <%= remaining %>}} of {{todoList.todos.length + <%= toDos.length %>}} remaining</span>
+  [ <a href="" ng-click="todoList.archive()">archive</a> ]
+  <ul class="unstyled">
+    <!-- server supplied todos through EJS-->
+    <%toDos.forEach(function(todo) { %>
+      <li>
+        <label class="checkbox">
+          <input type="checkbox"
+          <% if(todo.done) { %>
+           checked
+          <% } %>
+          >
+          <span class="done-<%= todo.done %>"><%= todo.text %></span>
+        </label>
+      </li>
+    <% }); %>
+    <!-- user supplied todos through angular-->
+    <li ng-repeat="todo in todoList.todos">
+      <label class="checkbox">
+        <input type="checkbox" ng-model="todo.done">
+        <span class="done-{{todo.done}}">{{todo.text}}</span>
+      </label>
+    </li>
+  </ul>
+  <form ng-submit="todoList.addTodo()">
+    <input type="text" ng-model="todoList.todoText"  size="30"
+           placeholder="add new todo here">
+    <input class="btn-primary" type="submit" value="add">
+  </form>
+</div>

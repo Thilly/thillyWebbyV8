@@ -1,52 +1,23 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const app = express();
+const articles = require('./content/articles.js').articles; // todo: fix temporary abstraction with mongo
+const toDos = require('./ToDo.js');
 
-let toDos = [];
-let remaining = 0;
+const app = express();
 
 app.use(express.static('public')); // get inline requests from public directory
 app.set('view engine', 'ejs');
 
-app.listen(8000, () => {
+app.listen(80, () => {
   console.log('Server started!');
-  buildToDos();
 });
 
 app.route('/').get((req, res) => {
   res.render(__dirname + '/index',
     {
         toDos: toDos,
-        remaining: remaining
+        articles: articles
     }
   );
 });
-
-function buildToDos(){
-  fs.readFile('./ToDo.js', 'utf8', (err, data) => {
-    if(err) {
-      console.log(err);
-      return;
-    }
-    let lines = data.split('\n');
-    let done = false;
-    for (var i = 0; i < lines.length; i++) {
-      let line = lines[i].trim();
-      if(line == '/* done:')
-        done = true;
-      if(line == '' || line.includes('/*'))
-        continue;
-
-      if(!done)
-        remaining++;
-
-      toDos.push({
-        text: line,
-        done: done,
-      });
-    }
-    toDos = toDos.reverse();
-    console.log('Todo list built');
-  });
-}
