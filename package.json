@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Thilly/thillyWebbyV8"
+  },
+  "author": "thilly",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.7.3",
