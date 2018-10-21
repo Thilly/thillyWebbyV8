@@ -13,6 +13,36 @@ app.listen(80, () => {
   console.log('Server started!');
 });
 
+app.route('/dev').get((req, res) => {
+  var filteredArticles = articles.filter(article => article.keyword == 'dev')
+  res.render(__dirname + '/index',
+    {
+        toDos: toDos,
+        articles: filteredArticles
+    }
+  );
+});
+
+app.route('/bp').get((req, res) => {
+  var filteredArticles = articles.filter(article => article.keyword == 'bp')
+  res.render(__dirname + '/index',
+    {
+        toDos: toDos,
+        articles: filteredArticles
+    }
+  );
+});
+
+app.route('/ms').get((req, res) => {
+  var filteredArticles = articles.filter(article => article.keyword == 'ms')
+  res.render(__dirname + '/index',
+    {
+        toDos: toDos,
+        articles: filteredArticles
+    }
+  );
+});
+
 app.route('/').get((req, res) => {
   res.render(__dirname + '/index',
     {

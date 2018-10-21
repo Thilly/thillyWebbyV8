@@ -19,6 +19,16 @@
 .todo-column::after {
   float: clear;
 }
-.todo-item:hover {
+.todo-item:hover, .navItem:hover {
   background-color: rgba(150, 150, 150, 0.5);
+}
+
+.navItemLink {
+  color: rgb(0,0,0);
+}
+
+.navItem {
+  text-align: center;
+  display: inline-block;
+  width: 33%;
 }

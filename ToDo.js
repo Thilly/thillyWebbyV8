@@ -8,6 +8,8 @@ exports.future = [
 
 /* present */
 exports.current = [
+  "add some content for the MS and bipolar tabs",
+  "stylize navbar",
   "stylize todo list on page",
   "hook up angular, click on current moves to done",
 ]
@@ -15,6 +17,7 @@ exports.current = [
 
 /* done */
 exports.done = [
+  "hook up navbar for tabs",
   "get EJS and angular both working on same file",
   "serve dynamic content",
   "serve static dependencies (js/css/etc)",
