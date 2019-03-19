@@ -7,6 +7,12 @@
 .content-block {
   background-color: rgba(100, 100, 100, 0.5);
 }
+
+.content-block img {
+  margin: auto;
+  display: block;
+}
+
 .footer-block {
   background-color: rgba(150, 150, 150, 0.5);
 }
