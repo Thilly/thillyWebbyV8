@@ -8,7 +8,6 @@ exports.future = [
 
 /* present */
 exports.current = [
-  "make tabs search from 'conatins' so that multiple columns can pick up same article.",
   "stylize navbar",
   "stylize todo list on page",
   "hook up angular, click on current moves to done",
@@ -17,6 +16,7 @@ exports.current = [
 
 /* done */
 exports.done = [
+  "make tabs search from 'conatins' so that multiple columns can pick up same article.",
   "add some content for the MS and bipolar tabs",
   "hook up navbar for tabs",
   "get EJS and angular both working on same file",

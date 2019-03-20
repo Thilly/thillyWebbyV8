@@ -14,7 +14,7 @@ app.listen(80, () => {
 });
 
 app.route('/dev').get((req, res) => {
-  var filteredArticles = articles.filter(article => article.keyword == 'dev')
+  var filteredArticles = articles.filter(article => article.keyword.includes('dev'))
   res.render(__dirname + '/index',
     {
         toDos: toDos,
@@ -24,7 +24,7 @@ app.route('/dev').get((req, res) => {
 });
 
 app.route('/bp').get((req, res) => {
-  var filteredArticles = articles.filter(article => article.keyword == 'bp')
+  var filteredArticles = articles.filter(article => article.keyword.includes('bp'))
   res.render(__dirname + '/index',
     {
         toDos: toDos,
@@ -34,7 +34,7 @@ app.route('/bp').get((req, res) => {
 });
 
 app.route('/ms').get((req, res) => {
-  var filteredArticles = articles.filter(article => article.keyword == 'ms')
+  var filteredArticles = articles.filter(article => article.keyword.includes('ms'))
   res.render(__dirname + '/index',
     {
         toDos: toDos,
